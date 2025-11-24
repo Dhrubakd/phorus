@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="nav-container">
         <Link to="/" className="nav-logo" onClick={closeMenu}>
           <img src="/phorusimg.jpg" alt="Phorus Advisory - Transaction Advisory and Financial Consulting" className="logo-image" />
-          <span>Phours</span>
+          <span className=''>Phours Investment & Business Advisory </span>
         </Link>
         
         <button 
@@ -64,6 +64,16 @@ const Navbar = () => {
               title="Industry Sectors We Serve"
             >
               Sectors
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link 
+              to="/articles" 
+              className={`nav-link ${isActive('/articles') ? 'active' : ''}`}
+              onClick={closeMenu}
+              title="Articles & Insights"
+            >
+              Articles
             </Link>
           </li>
           <li className="nav-item">
