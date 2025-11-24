@@ -44,45 +44,45 @@ const Home = () => {
         <h2 className="section-title animate-on-scroll animate-fadeInUp">Why Choose Phorus</h2>
         <div className="trust-grid">
           <div className="trust-card animate-on-scroll animate-fadeInUp animate-delay-1">
-            <div className="trust-icon">📊</div>
+            <div className="trust-icon">👔</div>
             <h3>Senior Expertise</h3>
             <p>
-              Led and supported board-level financial reporting, fundraises and M&A transactions.
+              Our leadership team has successfully led board-level financial reporting, fundraising rounds, and complex M&A transactions across diverse industries and markets.
             </p>
           </div>
           <div className="trust-card animate-on-scroll animate-fadeInUp animate-delay-2">
-            <div className="trust-icon">🎓</div>
+            <div className="trust-icon">🎯</div>
             <h3>Outcome-Driven Delivery</h3>
             <p>
-              Senior advisory team with CA / CFA / CPA credentials and multi-industry experience.
+              We focus on measurable results and tangible value creation, delivering solutions that directly impact your bottom line and strategic objectives.
             </p>
           </div>
           <div className="trust-card animate-on-scroll animate-fadeInUp animate-delay-3">
-            <div className="trust-icon">⚡</div>
+            <div className="trust-icon">💎</div>
             <h3>Investor Grade Standards</h3>
             <p>
-              Proven expertise across FP&A, strategic finance, valuation and transaction support.
+              We apply institutional-quality financial practices and reporting standards that meet the rigorous expectations of investors, lenders, and stakeholders.
             </p>
           </div>
           <div className="trust-card animate-on-scroll animate-fadeInUp animate-delay-4">
-            <div className="trust-icon">⚡</div>
+            <div className="trust-icon">✅</div>
             <h3>Reliable Execution</h3>
             <p>
-              Proven expertise across FP&A, strategic finance, valuation and transaction support.
+              Our proven track record of on-time, high-quality deliverables ensures you can depend on us for critical financial projects and deadlines.
             </p>
           </div>
           <div className="trust-card animate-on-scroll animate-fadeInUp animate-delay-5">
-            <div className="trust-icon">⚡</div>
+            <div className="trust-icon">🏭</div>
             <h3>Cross-Industry Financial Statement</h3>
             <p>
-              Proven expertise across FP&A, strategic finance, valuation and transaction support.
+              Deep experience spanning technology, manufacturing, real estate, FMCG, and professional services enables us to understand sector-specific nuances and best practices.
             </p>
           </div>
           <div className="trust-card animate-on-scroll animate-fadeInUp animate-delay-6">
-            <div className="trust-icon">⚡</div>
-            <h3>Governance and Controlls Mindset</h3>
+            <div className="trust-icon">🛡️</div>
+            <h3>Governance and Controls Mindset</h3>
             <p>
-              Proven expertise across FP&A, strategic finance, valuation and transaction support.
+              We embed robust internal controls, compliance frameworks, and governance structures into every engagement to protect your business and ensure operational integrity.
             </p>
           </div>
         </div>
