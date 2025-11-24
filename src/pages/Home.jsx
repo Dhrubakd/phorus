@@ -1,10 +1,51 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 import SEO from '../components/SEO';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 import './Home.css';
 
 const Home = () => {
   useScrollAnimation();
+  const numbersRef = useRef([]);
+
+  useEffect(() => {
+    const animateNumbers = () => {
+      numbersRef.current.forEach((element) => {
+        if (!element) return;
+        
+        const target = parseInt(element.getAttribute('data-target'));
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+
+        const updateNumber = () => {
+          current += increment;
+          if (current < target) {
+            element.textContent = Math.floor(current) + '+';
+            requestAnimationFrame(updateNumber);
+          } else {
+            element.textContent = target + '+';
+          }
+        };
+
+        // Check if element is in viewport
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && element.textContent === '0') {
+                updateNumber();
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        observer.observe(element);
+      });
+    };
+
+    animateNumbers();
+  }, []);
   
   return (
     <>
@@ -84,6 +125,28 @@ const Home = () => {
             <p>
               We embed robust internal controls, compliance frameworks, and governance structures into every engagement to protect your business and ensure operational integrity.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Snapshot Section */}
+      <section className="snapshot-section">
+        <h2 className="section-title animate-on-scroll animate-fadeInUp">Our Impact</h2>
+        <div className="snapshot-grid">
+          <div className="snapshot-card animate-on-scroll animate-scaleIn animate-delay-1">
+            <div className="snapshot-icon">👥</div>
+            <div className="snapshot-number" data-target="40" ref={(el) => (numbersRef.current[0] = el)}>0</div>
+            <div className="snapshot-label">Human Capital</div>
+          </div>
+          <div className="snapshot-card animate-on-scroll animate-scaleIn animate-delay-2">
+            <div className="snapshot-icon">🤝</div>
+            <div className="snapshot-number" data-target="120" ref={(el) => (numbersRef.current[1] = el)}>0</div>
+            <div className="snapshot-label">Active Clients</div>
+          </div>
+          <div className="snapshot-card animate-on-scroll animate-scaleIn animate-delay-3">
+            <div className="snapshot-icon">⭐</div>
+            <div className="snapshot-number" data-target="1195" ref={(el) => (numbersRef.current[2] = el)}>0</div>
+            <div className="snapshot-label">Total Clients Served</div>
           </div>
         </div>
       </section>
