@@ -111,27 +111,27 @@ const Sectors = () => {
               </p>
             </div>
             <div className="sector-card">
-              <div className="sector-icon">💳</div>
+              <div className="sector-icon">✈️</div>
               <h3>Travel Tourism and Hotels</h3>
               <p>
-                Advisory for fintech, asset management, and financial institutions 
-                with complex regulatory and reporting requirements.
+                Specialized financial advisory for hospitality, travel agencies, and tourism 
+                operators with revenue management, seasonal planning, and occupancy analytics.
               </p>
             </div>
             <div className="sector-card">
-              <div className="sector-icon">💳</div>
+              <div className="sector-icon">🏥</div>
               <h3>Hospitals and Education</h3>
               <p>
-                Advisory for hospitals, educational institutions, and related sectors
-                with complex regulatory and reporting requirements.
+                Comprehensive financial solutions for healthcare facilities and educational 
+                institutions with budgeting, compliance, and operational efficiency focus.
               </p>
             </div>
             <div className="sector-card">
-              <div className="sector-icon">💳</div>
+              <div className="sector-icon">🚀</div>
               <h3>Start-ups</h3>
               <p>
-                Advisory for start-ups and emerging businesses with unique financial
-                and operational challenges.
+                Tailored financial advisory for early-stage companies including fundraising 
+                support, financial modeling, and investor-ready reporting systems.
               </p>
             </div>
           </div>

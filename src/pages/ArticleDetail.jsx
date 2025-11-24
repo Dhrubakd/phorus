@@ -529,50 +529,80 @@ const ArticleDetail = () => {
           </div>
 
           <div className="article-body">
-            <div className="article-content-wrapper">
-              {article.content.map((section, index) => {
-                if (section.type === 'intro' || section.type === 'paragraph') {
-                  return (
-                    <p key={index} className={`article-${section.type} animate-on-scroll animate-fadeInUp`}>
-                      {section.text}
-                    </p>
-                  );
-                }
-                if (section.type === 'heading') {
-                  return (
-                    <h2 key={index} className="article-heading animate-on-scroll animate-fadeInUp">
-                      {section.text}
-                    </h2>
-                  );
-                }
-                if (section.type === 'list') {
-                  return (
-                    <ul key={index} className="article-list animate-on-scroll animate-fadeInUp">
-                      {section.items.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                    </ul>
-                  );
-                }
-                if (section.type === 'conclusion') {
-                  return (
-                    <div key={index} className="article-conclusion animate-on-scroll animate-fadeInUp">
-                      <p>{section.text}</p>
-                    </div>
-                  );
-                }
-                return null;
-              })}
-            </div>
+            <div className="article-layout">
+              <div className="article-content-wrapper">
+                {article.content.map((section, index) => {
+                  if (section.type === 'intro' || section.type === 'paragraph') {
+                    return (
+                      <p key={index} className={`article-${section.type} animate-on-scroll animate-fadeInUp`}>
+                        {section.text}
+                      </p>
+                    );
+                  }
+                  if (section.type === 'heading') {
+                    return (
+                      <h2 key={index} className="article-heading animate-on-scroll animate-fadeInUp">
+                        {section.text}
+                      </h2>
+                    );
+                  }
+                  if (section.type === 'list') {
+                    return (
+                      <ul key={index} className="article-list animate-on-scroll animate-fadeInUp">
+                        {section.items.map((item, idx) => (
+                          <li key={idx}>{item}</li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                  if (section.type === 'conclusion') {
+                    return (
+                      <div key={index} className="article-conclusion animate-on-scroll animate-fadeInUp">
+                        <p>{section.text}</p>
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
 
-            <div className="article-footer-cta">
-              <div className="cta-box animate-on-scroll animate-scaleIn">
-                <h3>Need Expert Advice?</h3>
-                <p>Our team can help you implement these strategies in your business.</p>
-                <Link to="/contact" className="cta-button">
-                  Contact Us
-                </Link>
+                <div className="article-footer-cta">
+                  <div className="cta-box animate-on-scroll animate-scaleIn">
+                    <h3>Need Expert Advice?</h3>
+                    <p>Our team can help you implement these strategies in your business.</p>
+                    <Link to="/contact" className="cta-button">
+                      Contact Us
+                    </Link>
+                  </div>
+                </div>
               </div>
+
+              <aside className="article-sidebar">
+                <div className="sidebar-sticky">
+                  <h3 className="sidebar-title">Related Articles</h3>
+                  <div className="related-articles">
+                    {Object.entries(articles)
+                      .filter(([key]) => key !== id)
+                      .slice(0, 5)
+                      .map(([key, relatedArticle]) => (
+                        <Link 
+                          key={key} 
+                          to={`/articles/${key}`} 
+                          className="related-article-card"
+                        >
+                          <div className="related-icon">{relatedArticle.image}</div>
+                          <div className="related-content">
+                            <span className="related-category">{relatedArticle.category}</span>
+                            <h4 className="related-title">{relatedArticle.title}</h4>
+                            <span className="related-read-time">{relatedArticle.readTime}</span>
+                          </div>
+                        </Link>
+                      ))}
+                  </div>
+                  <Link to="/articles" className="view-all-link">
+                    View All Articles →
+                  </Link>
+                </div>
+              </aside>
             </div>
           </div>
 
