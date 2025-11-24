@@ -1,0 +1,151 @@
+.sectors-page {
+    margin-top: 10px;
+  padding-top: 80px;
+}
+
+.sectors-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+}
+
+.sectors-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.sectors-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.95;
+}
+
+.sectors-content {
+  padding: 5rem 2rem;
+}
+
+.sectors-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectors-intro {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.sector-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.sector-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+  border-color: #667eea;
+}
+
+.sector-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.sector-card h3 {
+  font-size: 1.5rem;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+}
+
+.sector-card p {
+  color: #666;
+  line-height: 1.7;
+}
+
+.sectors-cta {
+  text-align: center;
+  padding: 3rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+}
+
+.sectors-cta h2 {
+  font-size: 2rem;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+}
+
+.sectors-cta p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+@media screen and (max-width: 1024px) {
+  .sectors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sectors-hero {
+    padding: 5rem 1.5rem 3rem;
+  }
+
+  .sectors-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .sectors-content {
+    padding: 3rem 1.5rem;
+  }
+
+  .sectors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sector-card {
+    padding: 2rem;
+  }
+
+  .sectors-cta {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sectors-hero-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .sectors-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .sector-card {
+    padding: 1.5rem;
+  }
+
+  .sector-icon {
+    font-size: 2.5rem;
+  }
+
+  .sectors-cta h2 {
+    font-size: 1.5rem;
+  }
+}
