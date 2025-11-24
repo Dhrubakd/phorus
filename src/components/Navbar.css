@@ -33,13 +33,29 @@
 .nav-logo {
   display: flex;
   align-items: center;
+  gap: 0.8rem;
   text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.02);
+}
+
+.nav-logo span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .logo-image {
   height: 50px;
   width: auto;
   object-fit: contain;
+  border-radius: 8px;
 }
 
 /* Hamburger Menu */
@@ -143,6 +159,10 @@
     justify-content: space-between;
   }
 
+  .nav-logo span {
+    font-size: 1.3rem;
+  }
+
   .logo-image {
     height: 40px;
   }
@@ -194,6 +214,10 @@
 }
 
 @media screen and (max-width: 480px) {
+  .nav-logo span {
+    font-size: 1.2rem;
+  }
+
   .logo-image {
     height: 35px;
   }

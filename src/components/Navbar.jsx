@@ -21,6 +21,7 @@ const Navbar = () => {
       <div className="nav-container">
         <Link to="/" className="nav-logo" onClick={closeMenu}>
           <img src="/phorusimg.jpg" alt="Phorus Advisory - Transaction Advisory and Financial Consulting" className="logo-image" />
+          <span>Phours</span>
         </Link>
         
         <button 
