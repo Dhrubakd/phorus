@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 import SEO from '../components/SEO';
 import useScrollAnimation from '../hooks/useScrollAnimation';
@@ -14,6 +15,9 @@ const Contact = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -21,10 +25,36 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Contact Form Submitted:', formData);
-    alert('Thank you for contacting us! We will get back to you soon.');
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    // EmailJS configuration
+    const serviceId = 'phorusid';  // Your EmailJS service ID
+    const templateId = 'template_09n5m37';  // Your template ID from the URL SeVapy7SoYDbdO4f9  template_i7s2dqw
+    const publicKey = '07EszC2KJiwxaxP5z';  // Get this from Account > API Keys in EmailJS
+
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      company: formData.company || 'Not provided',
+      subject: formData.subject,
+      message: formData.message,
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', company: '', subject: '', message: '' });
+      alert('Thank you for contacting us! We will get back to you soon.');
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setSubmitStatus('error');
+      alert('Sorry, there was an error sending your message. Please try again or email us directly at dhrubakd53@gmail.com');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -51,7 +81,7 @@ const Contact = () => {
             <div className="info-card">
               <div className="info-icon">📧</div>
               <h3>Email</h3>
-              <p>phorusadvisory@gmail.com</p>
+              <p>info@phorusadvisory.com</p>
               <p className="info-detail">We respond within 24 hours</p>
             </div>
 
@@ -68,14 +98,14 @@ const Contact = () => {
               <p>Kathmandu, Nepal</p>
             </div>
 
-            <div className="info-card social-card">
+            {/* <div className="info-card social-card">
               <h3>Follow Us</h3>
               <div className="social-links">
                 <a href="#facebook" className="social-link">Facebook</a>
                 <a href="#linkedin" className="social-link">LinkedIn</a>
                 <a href="#twitter" className="social-link">Twitter</a>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="contact-form-wrapper">
@@ -140,9 +170,16 @@ const Contact = () => {
                 ></textarea>
               </div>
 
-              <button type="submit" className="submit-button">
-                Send Message
+              <button type="submit" className="submit-button" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
+              
+              {submitStatus === 'success' && (
+                <p className="submit-message success">Message sent successfully!</p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="submit-message error">Failed to send message. Please try again.</p>
+              )}
             </form>
           </div>
         </div>
